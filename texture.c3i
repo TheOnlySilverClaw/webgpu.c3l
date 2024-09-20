@@ -2,7 +2,7 @@ module webgpu;
 
 distinct Texture = inline void*;
 
-fn TextureView Texture.createView(Texture texture, TextureViewDescriptor* descroptor) @extern("wgpuTextureCreateView");
+fn TextureView Texture.createView(Texture texture, TextureViewDescriptor* descriptor = null) @extern("wgpuTextureCreateView");
 
 fn void Texture.destroy(Texture texture, ZString label) @extern("wgpuTextureDestroy");
 

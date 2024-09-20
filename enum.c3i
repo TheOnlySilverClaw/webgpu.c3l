@@ -86,15 +86,9 @@ enum CompilationMessageType {
     ERROR,
     WARNING,
     INFO
-} 
-
-enum CompositeAlphaMode {
-    AUTO,
-    OPAQUE,
-    PREMULTIPLIED,
-    UNPREMULTIPLIED,
-    INHERIT
 }
+
+
 
 enum CreatePipelineAsyncStatus {
     SUCCESS,
@@ -127,12 +121,6 @@ enum IndexFormat {
     UINT32
 }
 
-enum LoadOperation {
-    UNDEFINED,
-    CLEAR,
-    LOAD
-}
-
 enum MipmapFilterMode {
     NEAREST,
     LINEAR
@@ -142,13 +130,6 @@ enum PowerPreference {
     UNDEFINED,
     LOW_POWER,
     HIGH_PERFORMANCE
-}
-
-enum PresentMode {
-    FIFO,
-    FIFO_RELAXED,
-    IMMEDIATE,
-    MAILBOX
 }
 
 enum PrimitiveTopology {
@@ -189,12 +170,6 @@ enum StorageTextureAccess {
     WRITE_ONLY,
     READ_ONLY,
     READ_WRITE
-}
-
-enum StoreOperation {
-    UNDEFINED,
-    STORE,
-    DISCARD
 }
 
 enum TextureAspect {
@@ -375,7 +350,7 @@ enum BufferUsage {
     QUERY_RESOLVE
 }
 
-struct ColorWriteMask /*: CUInt */ {
+struct ColorWriteMask {
     bool red;
     bool green;
     bool blue;
@@ -389,12 +364,10 @@ enum ShaderStage {
     COMPUTE
 }
 
-enum TextureUsage {
-    NONE,
-    COPY_SOURCE,
-    COPY_DESTINATION,
-    TEXTURE_BINDING,
-    STORAGE_BINDING,
-    RENDER_ATTACHMENT
+bitstruct TextureUsage: CInt {
+    bool copySource;
+    bool copyDestination;
+    bool textureBinding;
+    bool storageBinding;
+    bool renderAttachment;
 }
-

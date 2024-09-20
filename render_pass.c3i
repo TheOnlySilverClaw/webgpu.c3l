@@ -20,8 +20,7 @@ fn void RenderPassEncoder.drawIndexedIndirect(RenderPassEncoder encoder,
 fn void RenderPassEncoder.drawIndirect(RenderPassEncoder encoder,
     Buffer buffer, CULong offset) @extern("wgpuRenderPassEncoderDrawIndirect");
 
-fn RenderBundle RenderPassEncoder.end(RenderPassEncoder encoder,
-    RenderBundleDescriptor* descriptor) @extern("wgpuRenderPassEncoderEnd");
+fn RenderBundle RenderPassEncoder.end(RenderPassEncoder encoder) @extern("wgpuRenderPassEncoderEnd");
 
 fn void RenderPassEncoder.endOcclusionQuery(RenderPassEncoder encoder) @extern("wgpuRenderPassEncoderEndOcclusionQuery");
 
@@ -36,7 +35,7 @@ fn void RenderPassEncoder.popDebugGroup(RenderPassEncoder encoder)
 
 fn void RenderPassEncoder.pushDebugGroup(RenderPassEncoder encoder, ZString label)
     @extern("wgpuRenderPassEncoderPushDebugGroup");
-    
+
 fn void RenderPassEncoder.setBlendConstant(RenderPassEncoder encoder, Color* color)
     @extern("wgpuRenderPassEncoderSetBlendConstant");
 
@@ -113,4 +112,16 @@ struct RenderPassColorAttachment {
     LoadOperation loadOperation;
     StoreOperation storeOperation;
     Color clearValue;
+}
+
+enum LoadOperation {
+    UNDEFINED,
+    CLEAR,
+    LOAD
+}
+
+enum StoreOperation {
+    UNDEFINED,
+    STORE,
+    DISCARD
 }

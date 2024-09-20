@@ -8,8 +8,7 @@ fn void Surface.configure(Surface surface,
 fn void Surface.getCapabilities(Surface surface,
     Adapter adapter, SurfaceCapabilities* capabilities) @extern("wgpuSurfaceGetCapabilities");
 
-fn Texture Surface.getCurrentTexture(Surface surface,
-    Adapter adapter, SurfaceTexture* texture) @extern("wgpuSurfaceGetCurrentTexture");
+fn Texture Surface.getCurrentTexture(Surface surface, SurfaceTexture* texture) @extern("wgpuSurfaceGetCurrentTexture");
 
 fn TextureFormat Surface.getPreferredFormat(Surface surface,
     Adapter adapter) @extern("wgpuSurfaceGetPreferredFormat");
@@ -36,6 +35,7 @@ struct SurfaceDescriptor {
 
 struct SurfaceCapabilities {
     ChainedStructOut* next;
+    TextureUsage textureUsage;
     usz formatCount;
     TextureFormat* formats;
     usz presentModeCount;
@@ -70,4 +70,19 @@ enum CurrentTextureStatus {
     LOST,
     OUT_OF_MEMORY,
     DEVICE_LOST
+}
+
+enum CompositeAlphaMode {
+    AUTO,
+    OPAQUE,
+    PREMULTIPLIED,
+    UNPREMULTIPLIED,
+    INHERIT
+}
+
+enum PresentMode {
+    FIFO,
+    FIFO_RELAXED,
+    IMMEDIATE,
+    MAILBOX
 }

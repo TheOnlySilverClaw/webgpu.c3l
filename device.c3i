@@ -17,7 +17,7 @@ fn BindGroupLayout Device.createBindGroupLayout(Device device, BindGroupLayoutDe
 fn Buffer Device.createBuffer(Device device, BufferDescriptor* descriptor)
 	@extern("wgpuDeviceCreateBuffer");
 
-fn CommandEncoder Device.createCommandEncoder(Device device, CommandEncoderDescriptor* descriptor)
+fn CommandEncoder Device.createCommandEncoder(Device device, CommandEncoderDescriptor* descriptor = null)
 	@extern("wgpuDeviceCreateCommandEncoder");
 
 fn ComputePipeline Device.createComputePipeline(Device device, ComputePipelineDescriptor* descriptor)
