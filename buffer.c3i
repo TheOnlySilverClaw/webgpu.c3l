@@ -14,21 +14,20 @@ fn CULong Buffer.getSize(Buffer buffer) @extern("wgpuBufferGetSize");
 
 fn BufferUsage Buffer.getUsage(Buffer buffer) @extern("wgpuBufferGetUsage");
 
-fn BufferUsage Buffer.mapAsync(Buffer buffer, MapMode mode, usz offset, usz size,
+fn void Buffer.mapAsync(Buffer buffer, MapMode mode, usz offset, usz size,
     BufferMapAsyncCallback callback, UserData data) @extern("wgpuBufferMapAsync");
 
-fn BufferUsage Buffer.setLabel(Buffer buffer, ZString label) @extern("wgpuBufferSetLabel");
+fn void Buffer.setLabel(Buffer buffer, ZString label) @extern("wgpuBufferSetLabel");
 
-fn BufferUsage Buffer.unmap(Buffer buffer) @extern("wgpuBufferUnmap");
+fn void Buffer.unmap(Buffer buffer) @extern("wgpuBufferUnmap");
 
-fn BufferUsage Buffer.reference(Buffer buffer) @extern("wgpuBufferReference");
+fn void Buffer.reference(Buffer buffer) @extern("wgpuBufferReference");
 
-fn BufferUsage Buffer.release(Buffer buffer) @extern("wgpuBufferRelease");
+fn void Buffer.release(Buffer buffer) @extern("wgpuBufferRelease");
 
 
 def BufferMapAsyncCallback = fn void(BufferMapAsyncStatus status, UserData data);
 
-def BufferUsageFlags = BufferUsage;
 
 distinct BufferMappedRange = inline void*;
 
@@ -42,7 +41,7 @@ struct BufferBindingLayout {
 struct BufferDescriptor {
     ChainedStruct* next;
     ZString label;
-    BufferUsageFlags usage;
+    BufferUsage usage;
     CULong size;
     Bool mappedAtCreation;
 }
@@ -60,6 +59,32 @@ struct VertexBufferLayout {
     VertexAttribute* attributes;
 }
 
+bitstruct BufferUsage : CInt {
+   bool mapRead;
+   bool mapWrite;
+   bool copySource;
+   bool copyDestination;
+   bool index;
+   bool vertex;
+   bool uniform;
+   bool storage;
+   bool indirect;
+   bool queryResolve;
+}
+
+
+enum BufferMapAsyncStatus {
+    SUCCESS,
+    VALIDATION_ERROR,
+    UNKNOWN,
+    DEVICE_LOST,
+    DESTROYED_BEFORE_CALLBACK,
+    UNMAPPED_BEFORE_CALLBACK,
+    MAPPING_ALREADY_PENDING,
+    OFFSET_OUT_OF_RANGE,
+    SIZE_OUT_OF_RANGE
+}
+
 enum BufferMapState {
     UNMAPPED,
     PENDING,
@@ -70,4 +95,17 @@ enum MapMode {
     NONE,
     READ,
     WRITE
+}
+
+enum BufferBindingType {
+    UNDEFINED,
+    UNIFORM,
+    STORAGE,
+    READONLY_STORAGE
+}
+
+enum VertexStepMode {
+    VERTEX,
+    INSTANCE,
+    VERTEX_BUFFER_NOT_USED
 }

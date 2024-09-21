@@ -27,3 +27,11 @@ struct QueueDescriptor {
     ChainedStruct* next;
     ZString label;
 }
+
+
+enum QueueWorkDoneStatus {
+    SUCCESS,
+    ERROR,
+    UNKNOWN,
+    DEVICE_LOST
+}

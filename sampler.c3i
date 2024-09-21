@@ -24,3 +24,20 @@ struct SamplerDescriptor {
     CompareFunction compare;
     CUShort maxAnisotropy;
 }
+
+
+enum AddressMode {
+    REPEAT,
+    MIRROR_REPEAT,
+    CLAMP_TO_EDGE,
+}
+
+enum FilterMode {
+    NEAREST,
+    LINEAR
+}
+
+enum MipmapFilterMode {
+    NEAREST,
+    LINEAR
+}

@@ -61,3 +61,10 @@ struct ImageCopyTexture {
     Origin3D origin;
     TextureAspect aspect;
 }
+
+
+enum TextureAspect {
+    ALL,
+    STENCIL_ONLY,
+    DEPTH_ONLY
+}

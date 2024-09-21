@@ -63,3 +63,22 @@ struct RequestAdapterOptions {
     BackendType backendType;
     Bool forceFallbackAdapter;
 }
+
+
+enum PowerPreference {
+    UNDEFINED,
+    LOW_POWER,
+    HIGH_PERFORMANCE
+}
+
+enum BackendType {
+    UNDEFINED,
+    NULL,
+    WEBGPU,
+    D3_D11,
+    D3_D12,
+    METAL,
+    VULKAN,
+    OPENGL,
+    OPENGL_ES
+}

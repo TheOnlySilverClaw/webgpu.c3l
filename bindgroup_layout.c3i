@@ -32,3 +32,25 @@ struct TextureBindingLayout {
     TextureViewDimension viewDimension;
     Bool multisampled;
 }
+
+struct SamplerBindingLayout {
+    ChainedStruct* next;
+    SamplerBindingType type;
+}
+
+
+enum TextureSampleType {
+    UNDEFINED,
+    FLOAT,
+    UNFILTERABLE_FLOAT,
+    DEPTH,
+    SINT,
+    UINT
+}
+
+enum SamplerBindingType {
+    UNDEFINED,
+    FILTERING,
+    NON_FILTERING,
+    COMPARISON
+}

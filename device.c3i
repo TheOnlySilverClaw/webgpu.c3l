@@ -93,8 +93,9 @@ struct DeviceDescriptor {
 	FeatureName* requiredFeatures;
 	RequiredLimits* requiredLimits;
 	QueueDescriptor defaultQueue;
-	DeviceLostCallback deviceLostCallback   ;
+	DeviceLostCallback deviceLostCallback;
 	UserData deviceLostUserdata;
+	UncapturedErrorCallbackInfo uncapturedErrorCallbackInfo;
 }
 
 struct RequiredLimits {
@@ -142,6 +143,13 @@ struct Limits {
     CUInt maxComputeWorkgroupsPerDimension;
 }
 
+struct UncapturedErrorCallbackInfo {
+	ChainedStruct* next;
+	ErrorCallback callback;
+	UserData userData;
+}
+
+
 enum FeatureName {
 	UNDEFINED,
 	DEPTH_CLIP_CONTROL,
@@ -155,6 +163,15 @@ enum FeatureName {
 	RG11_B10_UFLOAT_RENDERABLE,
 	BGRA_8UNORM_STORAGE,
 	FLOAT32_FILTERABLE
+}
+
+enum CreatePipelineAsyncStatus {
+    SUCCESS,
+    VALIDATION_ERROR,
+    INTERNAL_ERROR,
+    DEVICE_LOST,
+    DEVICE_DESTROYED,
+    UNKNOWN
 }
 
 enum RequestDeviceStatus {
@@ -182,4 +199,3 @@ enum ErrorType {
 	UNKNOWN,
 	DEVICE_LOST
 }
-

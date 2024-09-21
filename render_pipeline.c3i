@@ -65,7 +65,46 @@ struct PrimitiveState {
     CullMode cullMode;
 }
 
-struct SamplerBindingLayout {
-    ChainedStruct* next;
-    SamplerBindingType type;
+
+enum BlendFactor {
+    ZERO,
+    ONE,
+    SRC,
+    ONE_MINUS_SRC,
+    SRC_ALPHA,
+    ONE_MINUS_SRC_ALPHA,
+    DST,
+    ONE_MINUS_DST,
+    DST_ALPHA,
+    ONE_MINUS_DST_ALPHA,
+    SRC_ALPHA_SATURATED,
+    CONSTANT,
+    ONE_MINUS_CONSTANT
+}
+
+enum BlendOperation {
+    ADD,
+    SUBTRACT,
+    REVERSE_SUBTRACT,
+    MIN,
+    MAX
+}
+
+enum FrontFace {
+    COUNTER_CLOCKWISE,
+    CLOCKWISE
+}
+
+enum CullMode {
+    NONE,
+    FRONT,
+    BACK
+}
+
+enum PrimitiveTopology {
+    POINT_LIST,
+    LINE_LIST,
+    LINE_STRIP,
+    TRIANGLE_LIST,
+    TRIANGLE_STRIP
 }

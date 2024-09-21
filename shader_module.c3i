@@ -2,6 +2,9 @@ module webgpu;
 
 distinct ShaderModule = inline void*;
 
+fn void ShaderModule.getCompilationInfo(ShaderModule shaderModule,
+    CompilationInfoCallback callback, UserData userData) @extern("wgpuShaderModuleGetCompilationInfo");
+
 fn void ShaderModule.setLabel(ShaderModule shaderModule,
     ZString label) @extern("wgpuShaderModuleSetLabel");
 
@@ -115,4 +118,77 @@ struct ColorTargetState {
     TextureFormat format;
     BlendState* blend;
     ColorWriteMaskFlags writeMask;
+}
+
+bitstruct ColorWriteMask: CInt {
+    bool red;
+    bool green;
+    bool blue;
+    bool alpha;
+}
+
+
+enum CompilationInfoRequestStatus {
+    SUCCESS,
+    ERROR,
+    DEVICE_LOST,
+    UNKNOWN
+}
+
+enum CompilationMessageType {
+    ERROR,
+    WARNING,
+    INFO
+}
+
+enum StencilOperation {
+    KEEP,
+    ZERO,
+    REPLACE,
+    INVERT,
+    INCREMENT_CLAMP,
+    DECREMENT_CLAMP,
+    INCREMENT_WRAP,
+    DECREMENT_WRAP
+}
+
+enum VertexFormat {
+    UNDEFINED,
+    UINT_8X2,
+    UINT_8X4,
+    SINT_8X2,
+    SINT_8X4,
+    UNORM_8X2,
+    UNORM_8X4,
+    SNORM_8X2,
+    SNORM_8X4,
+    UINT_16X2,
+    UINT_16X4,
+    SINT_16X2,
+    SINT_16X4,
+    UNORM_16X2,
+    UNORM_16X4,
+    SNORM_16X2,
+    SNORM_16X4,
+    FLOAT_16X2,
+    FLOAT_16X4,
+    FLOAT_32,
+    FLOAT_32X2,
+    FLOAT_32X3,
+    FLOAT_32X4,
+    UINT_32,
+    UINT_32X2,
+    UINT_32X3,
+    UINT_32X4,
+    SINT_32,
+    SINT_32X2,
+    SINT_32X3,
+    SINT_32X4
+}
+
+enum ShaderStage {
+    NONE,
+    VERTEX,
+    FRAGMENT,
+    COMPUTE
 }
