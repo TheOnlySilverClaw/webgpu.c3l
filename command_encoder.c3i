@@ -28,7 +28,7 @@ fn void CommandEncoder.copyTextureToTexture(CommandEncoder encoder,
     @extern("wgpuCommandEncoderCopyTextureToTexture");
 
 fn CommandBuffer CommandEncoder.finish(CommandEncoder encoder,
-    CommandBufferDescriptor* descriptor) @extern("wgpuCommandEncoderFinish");
+    CommandBufferDescriptor* descriptor = null) @extern("wgpuCommandEncoderFinish");
 
 fn void CommandEncoder.insertDebugMarker(CommandEncoder encoder,
     ZString label) @extern("wgpuCommandEncoderInsertDebugMarker");
