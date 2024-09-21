@@ -35,7 +35,7 @@ struct SurfaceDescriptor {
 
 struct SurfaceCapabilities {
     ChainedStructOut* next;
-    TextureUsage textureUsage;
+    TextureUsage usages;
     usz formatCount;
     TextureFormat* formats;
     usz presentModeCount;
@@ -48,7 +48,7 @@ struct SurfaceConfiguration {
     ChainedStruct* next;
     Device device;
     TextureFormat format;
-    TextureUsageFlags usage;
+    TextureUsage usage;
     usz viewFormatCount;
     TextureFormat* viewFormats;
     CompositeAlphaMode alphaMode;

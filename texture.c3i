@@ -27,12 +27,10 @@ fn void Texture.reference(Texture texture) @extern("wgpuTextureReference");
 fn void Texture.release(Texture texture) @extern("wgpuTextureRelease");
 
 
-def TextureUsageFlags = TextureUsage;
-
 struct TextureDescriptor {
     ChainedStruct* next;
     ZString label;
-    TextureUsageFlags usage;
+    TextureUsage usage;
     TextureDimension dimension;
     Extent3D size;
     TextureFormat format;
