@@ -31,12 +31,7 @@ def BufferMapAsyncCallback = fn void(BufferMapAsyncStatus status, UserData data)
 
 distinct BufferMappedRange = inline void*;
 
-struct BufferBindingLayout {
-    ChainedStruct* next;
-    BufferBindingType type;
-    Bool hasDynamicOffset;
-    CULong minBindingSize;
-}
+
 
 struct BufferDescriptor {
     ChainedStruct* next;
@@ -95,13 +90,6 @@ enum MapMode {
     NONE,
     READ,
     WRITE
-}
-
-enum BufferBindingType {
-    UNDEFINED,
-    UNIFORM,
-    STORAGE,
-    READONLY_STORAGE
 }
 
 enum VertexStepMode {

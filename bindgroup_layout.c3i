@@ -26,6 +26,13 @@ struct BindGroupLayoutEntry {
     StorageTextureBindingLayout storageTexture;
 }
 
+struct BufferBindingLayout {
+    ChainedStruct* next;
+    BufferBindingType type;
+    Bool hasDynamicOffset;
+    CULong minBindingSize;
+}
+
 struct TextureBindingLayout {
     ChainedStruct* next;
     TextureSampleType sampleType;
@@ -38,6 +45,13 @@ struct SamplerBindingLayout {
     SamplerBindingType type;
 }
 
+
+enum BufferBindingType {
+    UNDEFINED,
+    UNIFORM,
+    STORAGE,
+    READONLY_STORAGE
+}
 
 enum TextureSampleType {
     UNDEFINED,
