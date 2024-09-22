@@ -47,13 +47,6 @@ struct ImageCopyBuffer {
     Buffer buffer;
 }
 
-struct VertexBufferLayout {
-    CULong arrayStride;
-    VertexStepMode stepMode;
-    usz attributeCount;
-    VertexAttribute* attributes;
-}
-
 bitstruct BufferUsage : CInt {
    bool mapRead;
    bool mapWrite;
@@ -90,10 +83,4 @@ enum MapMode {
     NONE,
     READ,
     WRITE
-}
-
-enum VertexStepMode {
-    VERTEX,
-    INSTANCE,
-    VERTEX_BUFFER_NOT_USED
 }

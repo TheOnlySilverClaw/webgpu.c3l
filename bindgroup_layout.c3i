@@ -19,7 +19,7 @@ struct BindGroupLayoutDescriptor {
 struct BindGroupLayoutEntry {
     ChainedStruct* next;
     CUInt binding;
-    ShaderStageFlags visibility;
+    ShaderStage visibility;
     BufferBindingLayout buffer;
     SamplerBindingLayout sampler;
     TextureBindingLayout texture;
@@ -43,6 +43,12 @@ struct TextureBindingLayout {
 struct SamplerBindingLayout {
     ChainedStruct* next;
     SamplerBindingType type;
+}
+
+bitstruct ShaderStage: CInt {
+    bool vertex;
+    bool fragment;
+    bool compute;
 }
 
 

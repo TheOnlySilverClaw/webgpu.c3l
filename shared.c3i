@@ -4,6 +4,8 @@ def Bool = CUInt;
 
 def UserData = void*;
 
+const UNDEFINED = ~0u;
+
 struct Color {
     double red;
     double green;
@@ -25,6 +27,16 @@ bitstruct TextureUsage: CInt {
     bool renderAttachment;
 }
 
+
+enum TextureViewDimension {
+    UNDEFINED,
+    SINGLE_1D,
+    SINGLE_2D,
+    ARRAY_2D,
+    CUBE,
+    CUBE_ARRAY,
+    SINGLE_3D
+}
 
 enum CompareFunction {
     UNDEFINED,

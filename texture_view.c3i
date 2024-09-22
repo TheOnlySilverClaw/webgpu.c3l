@@ -22,16 +22,6 @@ struct TextureViewDescriptor {
     TextureAspect aspect;
 }
 
-enum TextureViewDimension {
-    UNDEFINED,
-    ONE,
-    TWO,
-    TWO_ARRAY,
-    CUBE,
-    CUBE_ARRAY,
-    THREE
-}
-
 struct StorageTextureBindingLayout {
     ChainedStruct* next;
     StorageTextureAccess access;
