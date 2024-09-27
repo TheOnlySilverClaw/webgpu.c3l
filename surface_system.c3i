@@ -22,7 +22,7 @@ struct SurfaceDescriptorFromMetalLayer {
 distinct WaylandDisplay = inline void*;
 distinct WaylandSurface = inline void*;
 
-struct SurfaceDescriptorFromWaylandSurface {
+struct SurfaceSourceWaylandSurface {
     ChainedStruct chain;
     WaylandDisplay display;
     WaylandSurface surface;
