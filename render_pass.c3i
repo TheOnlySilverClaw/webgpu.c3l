@@ -39,8 +39,8 @@ fn void RenderPassEncoder.pushDebugGroup(RenderPassEncoder encoder, ZString labe
 fn void RenderPassEncoder.setBlendConstant(RenderPassEncoder encoder, Color* color)
     @extern("wgpuRenderPassEncoderSetBlendConstant");
 
-fn void RenderPassEncoder.setBindGroup(RenderPassEncoder encoder, CUInt groupIndex)
-    @extern("wgpuRenderPassEncoderSetBindGroup");
+fn void RenderPassEncoder.setBindGroup(RenderPassEncoder encoder, CUInt groupIndex, BindGroup bindGroup,
+	usz dynamicOffsetCount = 0, CUInt* dynamicOffsets = null) @extern("wgpuRenderPassEncoderSetBindGroup");
 
 fn void RenderPassEncoder.setIndexBuffer(RenderPassEncoder encoder,
     Buffer buffer, IndexFormat format, CULong offset, CULong size)
@@ -49,7 +49,7 @@ fn void RenderPassEncoder.setIndexBuffer(RenderPassEncoder encoder,
 fn void RenderPassEncoder.setLabel(RenderPassEncoder encoder, ZString label)
     @extern("wgpuRenderPassEncoderSetLabel");
 
-fn void RenderPassEncoder.setPipeline(RenderPassEncoder encoder, ComputePipeline pipeline)
+fn void RenderPassEncoder.setPipeline(RenderPassEncoder encoder, RenderPipeline pipeline)
     @extern("wgpuRenderPassEncoderSetPipeline");
 
 fn void RenderPassEncoder.setScissorRect(RenderPassEncoder encoder,
@@ -59,7 +59,7 @@ fn void RenderPassEncoder.setStencilReference(RenderPassEncoder encoder,
     CUInt reference) @extern("wgpuRenderPassEncoderSetStencilReference");
 
 fn void RenderPassEncoder.setVertexBuffer(RenderPassEncoder encoder,
-    CUInt slot, Buffer buffer, IndexFormat format, CULong offset, CULong size)
+    CUInt slot, Buffer buffer, CULong offset, CULong size)
     @extern("wgpuRenderPassEncoderSetVertexBuffer");
 
 fn void RenderPassEncoder.setViewport(RenderPassEncoder encoder,
