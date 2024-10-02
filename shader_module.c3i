@@ -43,12 +43,6 @@ struct ConstantEntry {
     double value;
 }
 
-struct Origin3D {
-    CUInt x;
-    CUInt y;
-    CUInt z;
-}
-
 struct ShaderModuleCompilationHint {
     ChainedStruct* next;
     ZString entryPoint;

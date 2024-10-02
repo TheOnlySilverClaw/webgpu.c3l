@@ -36,3 +36,13 @@ enum StorageTextureAccess {
     READ_ONLY,
     READ_WRITE
 }
+
+enum TextureViewDimension {
+    UNDEFINED,
+    SINGLE_1D,
+    SINGLE_2D,
+    ARRAY_2D,
+    CUBE,
+    CUBE_ARRAY,
+    SINGLE_3D
+}
