@@ -4,7 +4,7 @@ distinct Texture = inline void*;
 
 fn TextureView Texture.createView(Texture texture, TextureViewDescriptor* descriptor = null) @extern("wgpuTextureCreateView");
 
-fn void Texture.destroy(Texture texture, ZString label) @extern("wgpuTextureDestroy");
+fn void Texture.destroy(Texture texture) @extern("wgpuTextureDestroy");
 
 fn CUInt Texture.getDepthOrArrayLayers(Texture texture) @extern("wgpuTextureGetDepthOrArrayLayers");
 
