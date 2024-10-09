@@ -1,7 +1,5 @@
 module webgpu;
 
-def Bool = CUInt;
-
 def UserData = void*;
 
 const UNDEFINED = ~0u;

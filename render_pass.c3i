@@ -86,11 +86,11 @@ struct RenderPassDepthStencilAttachment {
     LoadOperation depthLoadOperation;
     StoreOperation depthStoreOperation;
     float depthClearValue;
-    Bool depthReadOnly;
+    CBool depthReadOnly;
     LoadOperation stencilLoadOperation;
     StoreOperation stencilStoreOperation;
     CUInt stencilClearValue;
-    Bool stencilReadOnly;
+    CBool stencilReadOnly;
 }
 
 struct RenderPassDescriptorMaxDrawCount {

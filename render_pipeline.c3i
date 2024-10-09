@@ -63,13 +63,13 @@ struct MultisampleState {
     ChainedStruct* next;
     CUInt count;
     CUInt mask;
-    Bool alphaToCoverageEnabled;
+    CBool alphaToCoverageEnabled;
 }
 
 struct DepthStencilState {
     ChainedStruct* next;
     TextureFormat format;
-    Bool depthWriteEnabled;
+    CBool depthWriteEnabled;
     CompareFunction depthCompare;
     StencilFaceState stencilFront;
     StencilFaceState stencilBack;
@@ -114,7 +114,7 @@ struct BlendComponent {
 
 struct PrimitiveDepthClipControl {
     ChainedStruct chain;
-    Bool unclippedDepth;
+    CBool unclippedDepth;
 }
 
 struct PrimitiveState {

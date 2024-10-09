@@ -29,7 +29,7 @@ struct BindGroupLayoutEntry {
 struct BufferBindingLayout {
     ChainedStruct* next;
     BufferBindingType type;
-    Bool hasDynamicOffset;
+    CBool hasDynamicOffset;
     CULong minBindingSize;
 }
 
@@ -37,7 +37,7 @@ struct TextureBindingLayout {
     ChainedStruct* next;
     TextureSampleType sampleType;
     TextureViewDimension viewDimension;
-    Bool multisampled;
+    CBool multisampled;
 }
 
 struct SamplerBindingLayout {

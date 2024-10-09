@@ -53,11 +53,11 @@ fn void Device.destroy(Device device) @extern("wgpuDeviceDestroy");
 
 fn usz Device.enumerateFeatures(Device device, FeatureName* features) @extern("wgpuDeviceEnumerateFeatures");
 
-fn Bool Device.getLimits(Device device, SupportedLimits* limits) @extern("wgpuDeviceGetLimits");
+fn CBool Device.getLimits(Device device, SupportedLimits* limits) @extern("wgpuDeviceGetLimits");
 
 fn Queue Device.getQueue(Device device) @extern("wgpuDeviceGetQueue");
 
-fn Bool Device.hasFeature(Device device, FeatureName feature) @extern("wgpuDeviceHasFeature");
+fn CBool Device.hasFeature(Device device, FeatureName feature) @extern("wgpuDeviceHasFeature");
 
 fn void Device.popErrorScope(Device device, ErrorCallback callback) @extern("wgpuDevicePopErrorScope");
 

@@ -38,7 +38,7 @@ struct BufferDescriptor {
     ZString label;
     BufferUsage usage;
     CULong size;
-    Bool mappedAtCreation;
+    CBool mappedAtCreation;
 }
 
 struct ImageCopyBuffer {

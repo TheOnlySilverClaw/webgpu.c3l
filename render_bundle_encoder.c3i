@@ -58,6 +58,6 @@ struct RenderBundleEncoderDescriptor {
     TextureFormat* colorFormats;
     TextureFormat depthStencilFormat;
     CUInt sampleCount;
-    Bool depthReadOnly;
-    Bool stencilReadOnly;
+    CBool depthReadOnly;
+    CBool stencilReadOnly;
 }

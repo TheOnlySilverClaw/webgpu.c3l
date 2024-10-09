@@ -8,11 +8,11 @@ fault AdapterError {
 
 fn usz Adapter.enumerateFeatures(Adapter adapter, FeatureName* features) @extern("wgpuAdapterEnumerateFeatures");
 
-fn Bool Adapter.getLimits(Adapter adapter, SupportedLimits* limits) @extern("wgpuAdapterGetLimits");
+fn CBool Adapter.getLimits(Adapter adapter, SupportedLimits* limits) @extern("wgpuAdapterGetLimits");
 
 fn void Adapter.getProperties(Adapter adapter, AdapterProperties* properties) @extern("wgpuAdapterGetProperties");
 
-fn Bool Adapter.hasFeature(Adapter adapter, FeatureName feature) @extern("wgpuAdapterHasFeature");
+fn CBool Adapter.hasFeature(Adapter adapter, FeatureName feature) @extern("wgpuAdapterHasFeature");
 
 fn void Adapter.requestAdapterInfo(Adapter adapter, RequestAdapterInfoCallback callback, UserData data) @extern("wgpuAdapterRequestAdapterInfo");
 
@@ -61,7 +61,7 @@ struct RequestAdapterOptions {
     Surface compatibleSurface;
     PowerPreference powerPreference;
     BackendType backendType;
-    Bool forceFallbackAdapter;
+    CBool forceFallbackAdapter;
 }
 
 
