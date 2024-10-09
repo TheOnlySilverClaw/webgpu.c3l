@@ -1,6 +1,6 @@
 module webgpu;
 
-distinct Adapter = inline void*;
+distinct Adapter = void*;
 
 fault AdapterError {
     REQUEST_FAILED

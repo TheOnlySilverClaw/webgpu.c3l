@@ -1,6 +1,6 @@
 module webgpu;
 
-distinct CommandBuffer = inline void*;
+distinct CommandBuffer = void*;
 
 fn void CommandBuffer.setLabel(CommandBuffer buffer, ZString label) @extern("wgpuCommandBufferSetLabel");
 

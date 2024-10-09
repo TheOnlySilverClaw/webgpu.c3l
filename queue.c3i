@@ -1,6 +1,6 @@
 module webgpu;
 
-distinct Queue = inline void*;
+distinct Queue = void*;
 
 def BufferData = void*;
 

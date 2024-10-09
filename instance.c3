@@ -15,9 +15,9 @@ fn Adapter! Instance.requestAdapter(Instance instance, RequestAdapterOptions* op
 
     instance.requestAdapterAsync(options, callback, &adapter);
 
-    if(adapter == null) {
-        return AdapterError.REQUEST_FAILED?;
-    } else {
+    if(adapter) {
         return adapter;
+    } else {
+        return AdapterError.REQUEST_FAILED?;
     }
 }

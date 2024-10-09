@@ -1,6 +1,6 @@
 module webgpu;
 
-distinct ComputePipeline = inline void*;
+distinct ComputePipeline = void*;
 
 fn void ComputePipeline.setBindGroupLayout(ComputePipeline pipeline, CUInt groupIndex)
     @extern("wgpuComputePipelineSetBindGroup");

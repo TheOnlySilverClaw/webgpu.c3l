@@ -14,9 +14,9 @@ fn Device! Adapter.requestDevice(Adapter adapter, DeviceDescriptor* descriptor =
 
     adapter.requestDeviceAsync(descriptor, callback, &device);
 
-    if(device == null) {
-        return DeviceError.REQUEST_FAILED?;
-    } else {
+    if(device) {
         return device;
+    } else {
+        return DeviceError.REQUEST_FAILED?;
     }
 }

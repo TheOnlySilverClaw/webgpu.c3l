@@ -1,6 +1,6 @@
 module webgpu;
 
-distinct Device = inline void*;
+distinct Device = void*;
 
 fault DeviceError {
     REQUEST_FAILED

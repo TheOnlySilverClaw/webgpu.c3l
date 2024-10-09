@@ -1,6 +1,6 @@
 module webgpu;
 
-distinct Buffer = inline void*;
+distinct Buffer = void*;
 
 fn void Buffer.destroy(Buffer buffer) @extern("wgpuBufferDestroy");
 

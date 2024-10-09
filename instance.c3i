@@ -1,6 +1,6 @@
 module webgpu;
 
-distinct Instance = inline void*;
+distinct Instance = void*;
 
 fn Surface Instance.createSurface(Instance instance,
     SurfaceDescriptor* descriptor) @extern("wgpuInstanceCreateSurface");
