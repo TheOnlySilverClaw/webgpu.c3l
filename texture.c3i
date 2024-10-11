@@ -49,7 +49,6 @@ bitstruct TextureUsage: CInt {
 }
 
 
-// TODO enum
 enum TextureDimension {
     DIMENSION_1D,
     DIMENSION_2D,
